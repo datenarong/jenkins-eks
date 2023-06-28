@@ -66,6 +66,12 @@ RUN \
     docker-ce;
 
 # Install Go
-RUN wget https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz; \
+RUN \
+  apt-get update; \
+  apt-get install -y \
+    wget; \
+  wget https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz; \
   tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz; \
   ln -s /usr/local/go/bin/go /usr/bin/go;
+
+wget https://dl.google.com/go/go1.16.8.linux-amd64.tar.gz
